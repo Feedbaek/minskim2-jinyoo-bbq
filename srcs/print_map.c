@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 23:22:01 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/04/15 02:12:40 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/15 02:44:16 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,12 @@ void	convert_map(int **sq_size, t_inform *inf, char **map)
 void	print_map(char **map)
 {
 	int i;
-	int j;
 
 	i = 0;
 	while (map[i])
 	{
-		j = 0;
-		while (map[i][j])
-			write(1, &map[i][j++], 1);
-		write(1, "\n", 1);
+		ft_putstr(map[i]);
+		ft_putchar('\n');
 		i++;
 	}
 }
