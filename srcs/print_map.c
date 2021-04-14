@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 23:22:01 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/04/15 01:45:53 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/04/15 02:12:40 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_box	find_max_size(int **sq_size, int h, int w)
 {
-	int 	max;
-	int 	i;
-	int 	j;
+	int		max;
+	int		i;
+	int		j;
 	t_box	inf;
 
 	max = -1;
@@ -26,7 +26,6 @@ t_box	find_max_size(int **sq_size, int h, int w)
 		j = -1;
 		while (++j < w)
 		{
-
 			if (max < sq_size[i][j])
 			{
 				max = sq_size[i][j];
@@ -42,8 +41,8 @@ t_box	find_max_size(int **sq_size, int h, int w)
 void	convert_map(int **sq_size, t_inform *inf, char **map)
 {
 	t_box	box_pt;
-	int 	width;
-	int	height;
+	int		width;
+	int		height;
 	char	f;
 
 	box_pt = find_max_size(sq_size, inf->line, inf->size);
@@ -55,7 +54,7 @@ void	convert_map(int **sq_size, t_inform *inf, char **map)
 		while (width < box_pt.x + box_pt.s_size)
 			map[height][width++] = f;
 		height++;
-	}	
+	}
 }
 
 void	print_map(char **map)
