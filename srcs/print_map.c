@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 23:22:01 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/04/15 01:32:42 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/04/15 01:34:26 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ t_box	find_max_size(int **sq_size, int h, int w)
 
 			if (max < sq_size[i][j])
 			{
-				inf.s_size = sq_size[i][j];
+				max = sq_size[i][j];
+				inf.s_size = max;
 				inf.x = j;
 				inf.y = i;
 			}
