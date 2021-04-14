@@ -6,23 +6,24 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:47:03 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/14 17:10:38 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/14 18:36:22 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-int		line_size(void)
+int		line_size(int fd)   //둘째줄부터 들어옴
 {
-	int cnt;
-	int fd;
+	int		cnt;
+	char	ch;
 
 	cnt = 0;
-	fd = open(fd, O_RDONLY);
 	read(fd, &ch, 1);
 	while (ch != '\n')
+	{
 		cnt++;
-	close(fd);
+		read(fd, &ch, 1);
+	}
 	return (cnt);
 }
 
