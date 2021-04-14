@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:06:53 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 01:42:57 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/15 02:04:34 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 void	bsq(int fd, t_inform *inf)
 {
 	int		i;
-	int		j;
 	char	**map;
 	int		**result;
 
@@ -26,15 +25,8 @@ void	bsq(int fd, t_inform *inf)
 	while (i < inf->line)
 		map[i++] = read_line(fd, inf->size);
 	result = search_sq(map, inf);
-	i = 0;
-	while (i < inf->line)
-	{
-		j = 0;
-		while (j < inf->size)
-			printf("%d", result[i][j++]);
-		i++;
-		printf("\n");
-	}
+	convert_map(result, inf, map);
+	print_map(map);
 }
 
 int		main(int argc, char *argv[])
@@ -55,6 +47,6 @@ int		main(int argc, char *argv[])
 	str = read_line(fd, first);
 	set_inform(str, inf);
 	inf->size = size;
-	BSQ(fd, inf);
+	bsq(fd, inf);
 	return (0);
 }
