@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:47:03 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/14 21:10:40 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/14 23:12:13 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,23 @@ char	*read_line(int fd, int line_size)
 	}
 	*tmp = 0;
 	return (p);	
+}
+
+void	set_inform(char *inform, t_inform *map)
+{
+	int idx;
+	int i;
+
+	idx = ft_strlen(inform) - 1;
+	i = 0;
+	map->full = inform[idx--];
+	map->object = inform[idx--];
+	map->empty = inform[idx--];
+	map->line = 0;
+	while (i <= idx)
+	{
+		map->line *= 10;
+		map->line += inform[i] - '0';
+		i++;
+	}
 }
