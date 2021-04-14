@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 23:22:01 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/04/15 01:34:26 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/04/15 01:45:53 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@ t_box	find_max_size(int **sq_size, int h, int w)
 	int 	j;
 	t_box	inf;
 
-
 	max = -1;
-	i = 0;
-	while (i < h)
+	i = -1;
+	while (++i < h)
 	{
-		j = 0;
-		while (j < w)
+		j = -1;
+		while (++j < w)
 		{
 
 			if (max < sq_size[i][j])
@@ -35,9 +34,7 @@ t_box	find_max_size(int **sq_size, int h, int w)
 				inf.x = j;
 				inf.y = i;
 			}
-			j++;
 		}
-		i++;
 	}
 	return (inf);
 }
@@ -45,29 +42,19 @@ t_box	find_max_size(int **sq_size, int h, int w)
 void	convert_map(int **sq_size, t_inform *inf, char **map)
 {
 	t_box	box_pt;
-	int	i;
-	int	j;
-	int 	x;
-	int	y;
+	int 	width;
+	int	height;
 	char	f;
 
 	box_pt = find_max_size(sq_size, inf->line, inf->size);
-	x = box_pt.x;
-	y = box_pt.y;
+	height = box_pt.y;
 	f = inf->full;
-	i = 0;
-	while (map[i])
+	while (height < box_pt.y + box_pt.s_size)
 	{
-		j = 0;
-		while (map[i][j])
-		{
-			if ((j >= x && j <= x + box_pt.s_size - 1)\
-					&& (i >= y && i <= y + box_pt.s_size\
-						-1))
-				map[i][j] = f;
-			j++;
-		}
-		i++;
+		width = box_pt.x;
+		while (width < box_pt.x + box_pt.s_size)
+			map[height][width++] = f;
+		height++;
 	}	
 }
 
