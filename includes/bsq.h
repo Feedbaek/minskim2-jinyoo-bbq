@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:26:33 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/14 23:53:36 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/15 00:36:28 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_inform
 }		t_inform;
 
 void    set_inform(char *inform, t_inform *map);
+int     **search_sq(char **map, t_inform *inf);
 
 typedef struct	s_box
 {
