@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:47:03 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/14 23:12:13 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/04/15 01:12:15 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*read_line(int fd, int line_size)
 		tmp++;
 	}
 	*tmp = 0;
-	return (p);	
+	return (p);
 }
 
 void	set_inform(char *inform, t_inform *map)
