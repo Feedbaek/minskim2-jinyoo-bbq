@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:26:33 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 00:36:28 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/15 01:55:13 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void    ft_putstr(char *str);
 void    line_size(int fd, int *first, int *map_size);
 char    *read_line(int fd, int line_size);
 int		ft_strlen(char *str);
+void	print_map(char **map);
+void	bsq(int fd, t_inform *inf);
 
 typedef struct	s_inform
 {
@@ -42,6 +44,8 @@ typedef struct	s_box
 	int	s_size;
 }		t_box;
 
+void	convert_map(int **sq_size, t_inform *inf, char **map);
+t_box	find_max_size(int **sq_size, int h, int w);
 //define
 
 #endif
