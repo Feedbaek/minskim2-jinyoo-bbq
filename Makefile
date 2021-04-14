@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -c
 DICSRCS = srcs
 HEADER = includes
 
-SOURCES = $(DICSRCS)/main.c
+SOURCES = $(DICSRCS)/main.c $(DICSRCS)/print.c
 TARGET = BSQ
 OBJS = $(SOURCES:.c=.o)
 
@@ -17,7 +17,7 @@ $(TARGET): $(OBJS)
 all: $(TARGET)
 
 clean:
-	rm -f *.o
+	rm -f $(DICSRCS)/*.o
 
 fclean : clean
 	rm -f $(TARGET)
