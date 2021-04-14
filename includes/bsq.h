@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:26:33 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/14 20:16:07 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/14 21:02:35 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 
 void	ft_putchar(char c);
 void    ft_putstr(char *str);
-int		read_inform(int fd);
-int		line_size(int fd);
+void    line_size(int fd, int *first, int *map_size);
 char    *read_line(int fd, int line_size);
 int		ft_strlen(char *str);
 
