@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:06:53 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 00:41:53 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/15 00:58:34 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	main(int argc, char *argv[])
 		map[i++] = read_line(fd, inf->size);
 	result = search_sq(map, inf);
 	i = 0;
-	j = 0;
 	while (i < inf->line)
 	{
+		j = 0;
 		while (j < inf->size)
 		{
 			printf("%d", result[i][j]);
