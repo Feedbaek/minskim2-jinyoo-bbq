@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:26:33 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/14 21:02:35 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/14 23:53:36 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		ft_strlen(char *str);
 typedef struct	s_inform
 {
 	int		line;
+	int		size;
 	char	empty;
 	char	full;
 	char	object;
@@ -37,7 +38,7 @@ typedef struct	s_box
 {
 	int	x;
 	int	y;
-	int	square_size;
+	int	s_size;
 }		t_box;
 
 //define

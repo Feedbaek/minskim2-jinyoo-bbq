@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:06:53 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/14 21:15:11 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/14 23:27:53 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ int	main(int argc, char *argv[])
 	fd = open(argv[1], O_RDONLY);
 	str = read_line(fd, first);
 	set_inform(str, inf);
+	inf->size = size;
 	map = (char **)malloc(sizeof(char*) * (inf->line + 1));
 	map[inf->line] = 0;
 	i = 0;
 	while (i < inf->line)
-		map[i++] = read_line(fd, size);
+		map[i++] = read_line(fd, inf->size);
 	return (0);
 }
