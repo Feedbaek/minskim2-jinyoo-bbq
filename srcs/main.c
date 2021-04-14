@@ -6,12 +6,11 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:06:53 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 02:47:11 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/15 04:10:05 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
-#include <stdio.h>
 
 void	bsq(int fd, t_inform *inf)
 {
@@ -54,16 +53,25 @@ void	set_bsq(int i, t_inform *inf, char *argv[])
 int		main(int argc, char *argv[])
 {
 	int			i;
+	char	data[1000];
 	t_inform	*inf;
 
 	inf = (t_inform*)malloc(sizeof(t_inform));
-	if (!inf || argc <= 1)
+	if (!inf)
 		return (0);
-	i = 1;
-	while (i < argc)
+	if (argc == 1)
 	{
-		set_bsq(i, inf, argv);
-		i++;
+		read(0, data, 1000);
+		set_data(data);
+	}
+	else
+	{
+		i = 1;
+		while (i < argc)
+		{
+			set_bsq(i, inf, argv);
+			i++;
+		}
 	}
 	free(inf);
 	return (0);
