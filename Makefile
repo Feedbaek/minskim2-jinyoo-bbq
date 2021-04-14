@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -c
 
 DICSRCS = srcs
 HEADER = includes
@@ -9,10 +9,10 @@ TARGET = BSQ
 OBJS = $(SOURCES:.c=.o)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $<
+	$(CC) $(CFLAGS) $< -o $@ -I $(HEADER)
 
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $^ -o $@
 
 all: $(TARGET)
 
