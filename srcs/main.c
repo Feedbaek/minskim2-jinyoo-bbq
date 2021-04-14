@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:06:53 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 02:47:11 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/15 03:13:28 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int		main(int argc, char *argv[])
 	while (i < argc)
 	{
 		set_bsq(i, inf, argv);
+		ft_putchar('\n');
 		i++;
 	}
 	free(inf);
