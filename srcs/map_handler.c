@@ -6,23 +6,28 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 17:20:14 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/04/14 17:31:57 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/04/14 18:27:09 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-int g_line;
-char g_empty;
-char g_full;
-char g_obs;
-
-void	set_inform(char *inform)
+void	set_inform(char *inform, t_inform *map)
 {
 	int idx;
-	
-	idx = ft_strlen(inform) - 1;
-	while (idx--)
-	
+	int i;
 
+	idx = ft_strlen(inform) - 1;
+	i = 0;
+	map->full = inform[idx--];
+	map->object = inform[idx--];
+	map->empty = inform[idx--];
+	map->line = 0;
+	while (i <= idx)
+	{
+		map->line *= 10;
+		map->line += inform[i] - '0';
+	}
 }
+
+
