@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -c
 DICSRCS = srcs
 HEADER = includes
 
-SOURCES = $(DICSRCS)/main.c $(DICSRCS)/util.c
+SOURCES = $(DICSRCS)/main.c $(DICSRCS)/util.c ${DICSRCS}/map_handler.c ${DICSRCS}/readmap.c
 TARGET = BSQ
 OBJS = $(SOURCES:.c=.o)
 
