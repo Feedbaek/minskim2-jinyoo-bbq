@@ -6,12 +6,11 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:06:53 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 03:13:28 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/15 10:37:54 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
-#include <stdio.h>
 
 void	bsq(int fd, t_inform *inf)
 {
