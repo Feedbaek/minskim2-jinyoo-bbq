@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:06:53 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 11:39:25 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/04/15 11:48:43 by minskim2         ###   ########.fr       */
 /*   Updated: 2021/04/15 11:13:30 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -61,31 +61,29 @@ int		main(int argc, char *argv[])
 	int			fd;
 	char		c;
 	t_inform	*inf;
-	char		c;
 
 	inf = (t_inform*)malloc(sizeof(t_inform));
 	if (!inf)
 		exit(1);
-	if (argc == 1)
-	{
-		fd = open("./Test", O_TRUNC|O_WRONLY|O_CREAT, 0644);
-		while (read(0, &c, 1)
-				write(fd, &c, 1);
-		return (0);
-	}
+	i = 1;
 	if (argc == 1)
 	{
 		fd = open("./Test", O_TRUNC | O_WRONLY|O_CREAT, 0644);
 		while (read(0, &c, 1))
 			write(fd, &c, 1);
+		close(fd);
+		argv[1] = "./Test";
+		set_bsq(1, inf, argv);
 	}
-	i = 1;
-	while (i < argc)
+	else
 	{
-		set_bsq(i, inf, argv);
-		if (i < argc - 1)
-			ft_putchar('\n');
-		i++;
+		while (i < argc)
+		{
+			set_bsq(i, inf, argv);
+			if (i < argc - 1)
+				ft_putchar('\n');
+			i++;
+		}
 	}
 	free(inf);
 	return (0);
