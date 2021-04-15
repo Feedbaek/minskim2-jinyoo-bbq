@@ -6,7 +6,7 @@
 /*   By: jinyoo <jinyoo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 17:20:14 by jinyoo            #+#    #+#             */
-/*   Updated: 2021/04/15 02:52:19 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/15 11:08:40 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	**search_sq(char **map, t_inform *inf)
 
 	result = (int**)malloc(sizeof(int*) * inf->line);
 	if (!result)
-		return (0);
+		exit(1);
 	i = 0;
 	while (i < inf->line)
 		result[i++] = (int*)malloc(sizeof(int) * inf->size);

@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:06:53 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 10:40:14 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/04/15 11:02:56 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@ void	set_bsq(int i, t_inform *inf, char *argv[])
 	close(fd);
 	fd = open(argv[i], O_RDONLY);
 	str = read_line(fd, first);
-	set_inform(str, inf);
+	if(!set_inform(str, inf))
+	{
+		print_error();
+		return ;
+	}
 	inf->size = size;
 	bsq(fd, inf);
 	close(fd);
