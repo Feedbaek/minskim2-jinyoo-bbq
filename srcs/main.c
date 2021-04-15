@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:06:53 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 10:40:14 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/04/15 11:13:30 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@ void	set_bsq(int i, t_inform *inf, char *argv[])
 	close(fd);
 	fd = open(argv[i], O_RDONLY);
 	str = read_line(fd, first);
-	set_inform(str, inf);
+	if(!set_inform(str, inf))
+	{
+		print_error();
+		return ;
+	}
 	inf->size = size;
 	bsq(fd, inf);
 	close(fd);
@@ -53,11 +57,19 @@ void	set_bsq(int i, t_inform *inf, char *argv[])
 int		main(int argc, char *argv[])
 {
 	int			i;
+	int			fd;
 	t_inform	*inf;
+	char		c;
 
 	inf = (t_inform*)malloc(sizeof(t_inform));
-	if (!inf || argc <= 1)
+	if (!inf)
 		return (0);
+	if (argc == 1)
+	{
+		fd = open("./Test", O_TRUNC | O_WRONLY|O_CREAT, 0644);
+		while (read(0, &c, 1))
+			write(fd, &c, 1);
+	}
 	i = 1;
 	while (i < argc)
 	{
