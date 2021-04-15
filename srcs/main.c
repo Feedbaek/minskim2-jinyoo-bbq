@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:06:53 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 11:02:56 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/04/15 11:25:48 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	bsq(int fd, t_inform *inf)
 
 	map = (char **)malloc(sizeof(char*) * (inf->line + 1));
 	if (!map)
-		return ;
+		exit(1);
 	map[inf->line] = 0;
 	i = 0;
 	while (i < inf->line)
@@ -57,11 +57,19 @@ void	set_bsq(int i, t_inform *inf, char *argv[])
 int		main(int argc, char *argv[])
 {
 	int			i;
+	int			fd;
+	char		c;
 	t_inform	*inf;
 
 	inf = (t_inform*)malloc(sizeof(t_inform));
-	if (!inf || argc <= 1)
-		return (0);
+	if (!inf)
+		exit(1);
+	if (argc == 1)
+	{
+		fd = open("./Test", O_TRUNC|O_WRONLY|O_CREAT, 0644);
+		while (read(0, &c, 1)
+				write(fd, &c, 1);
+	}
 	i = 1;
 	while (i < argc)
 	{
