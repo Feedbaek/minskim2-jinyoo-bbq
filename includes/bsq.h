@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:26:33 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 11:05:01 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/04/15 12:13:26 by jinyoo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ typedef struct	s_box
 t_box			find_max_size(int **sq_size, int h, int w);
 void			convert_map(int **sq_size, t_inform *inf, char **map);
 void			print_map(char **map);
-void			bsq(int fd, t_inform *inf);
+int				bsq(int fd, t_inform *inf);
 
 #endif

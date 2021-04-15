@@ -6,18 +6,19 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:06:53 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 11:48:43 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/15 12:12:57 by jinyoo           ###   ########.fr       */
 /*   Updated: 2021/04/15 11:13:30 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-void	bsq(int fd, t_inform *inf)
+int		bsq(int fd, t_inform *inf)
 {
 	int		i;
 	char	**map;
 	int		**result;
+	int		j;
 
 	map = (char **)malloc(sizeof(char*) * (inf->line + 1));
 	if (!map)
@@ -25,11 +26,19 @@ void	bsq(int fd, t_inform *inf)
 	map[inf->line] = 0;
 	i = 0;
 	while (i < inf->line)
+	{
+		j = 0;
 		map[i++] = read_line(fd, inf->size);
+		while (map[i][j])
+			if (map[i][j] != inf->empty && map[i][j] != \
+					inf->object)
+				return (0);
+	}
 	result = search_sq(map, inf);
 	convert_map(result, inf, map);
 	free(result);
 	print_map(map);
+	return (1);
 }
 
 void	set_bsq(int i, t_inform *inf, char *argv[])
@@ -50,7 +59,11 @@ void	set_bsq(int i, t_inform *inf, char *argv[])
 		return ;
 	}
 	inf->size = size;
-	bsq(fd, inf);
+	if(!bsq(fd, inf))
+	{
+		print_error();
+		return ;
+	}
 	close(fd);
 	free(str);
 }
