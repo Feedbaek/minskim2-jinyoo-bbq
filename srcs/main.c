@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:06:53 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 12:12:57 by jinyoo           ###   ########.fr       */
+/*   Updated: 2021/04/15 12:24:36 by jinyoo           ###   ########.fr       */
 /*   Updated: 2021/04/15 11:13:30 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -28,11 +28,15 @@ int		bsq(int fd, t_inform *inf)
 	while (i < inf->line)
 	{
 		j = 0;
-		map[i++] = read_line(fd, inf->size);
+		map[i] = read_line(fd, inf->size);
 		while (map[i][j])
+		{
 			if (map[i][j] != inf->empty && map[i][j] != \
 					inf->object)
 				return (0);
+			j++;
+		}
+		i++;
 	}
 	result = search_sq(map, inf);
 	convert_map(result, inf, map);
