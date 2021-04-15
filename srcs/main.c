@@ -6,7 +6,7 @@
 /*   By: minskim2 <minskim2@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:06:53 by minskim2          #+#    #+#             */
-/*   Updated: 2021/04/15 11:13:30 by minskim2         ###   ########.fr       */
+/*   Updated: 2021/04/15 11:36:31 by minskim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		main(int argc, char *argv[])
 
 	inf = (t_inform*)malloc(sizeof(t_inform));
 	if (!inf)
-		return (0);
+		exit(1);
 	if (argc == 1)
 	{
 		fd = open("./Test", O_TRUNC | O_WRONLY|O_CREAT, 0644);
